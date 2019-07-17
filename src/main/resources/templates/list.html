@@ -3,34 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>List</title>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <style>
-        table {
-            font-family: arial, sans-serif;
-            border-collapse: collapse;
-            width: 100%;
-        }
-
-        td, th {
-            border: 1px solid #dddddd;
-            text-align: left;
-            padding: 8px;
-        }
-
-        tr:nth-child(even) {
-            background-color: #dddddd;
-        }
-    </style>
-
+    <div th:replace="~{fragments :: headlinks}"></div>
 </head>
 <body>
-<h2 style="text-align: center">Course List</h2>
-
-
+<h2 class="pageTitle">Course List</h2>
     <a href="/add" class="btn btn-default btn-sm">Add a Course
         <span class="glyphicon glyphicon-plus"></span>
     </a>
@@ -50,7 +26,7 @@
             <td align="center">
                 <a th:href="@{/update/{id}(id=${course.id})}"
                    class="btn btn-default btn-sm">Update
-                   <span class="glyphicon glyphicon-pencil"></span>
+                   <span class="glyphicon glyphicon-edit"></span>
                 </a>
                 <a th:href="@{/detail/{id}(id=${course.id})}"
                    class="btn btn-default btn-sm">Details
@@ -65,5 +41,9 @@
             </td>
         </tr>
     </table>
+
+
+<div th:replace="~{fragments :: footer}"></div>
+
 </body>
 </html>

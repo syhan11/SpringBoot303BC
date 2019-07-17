@@ -2,15 +2,27 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Detail</title>
+    <title>List2</title>
+    <div th:replace="~{fragments :: headlinks}"></div>
 </head>
 <body>
-<h2 style="alignment: center">Detail Course Information</h2>
-    <a href="/">Show All Courses</a><br/>
-    Title:<span th:text="${course.title}"></span><br/>
-    Instructor:<span th:text="${course.instructor}"></span><br/>
-    Description:<span th:text="${course.description}"></span><br/>
-    Credits:<span th:text="${course.credit}"></span><br/>
-    <a th:href="@{/delete/{id}(id=${course.id})}">Delete this course</a>
+<h2 class="pageTitle">Course List2</h2>
+<br/>
+    <a href="/" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list"></span>Show All</a><br/>
+
+    <h3 name="textInput">
+    Title:<span th:text="${course.title}"></span><br/><br/>
+    Instructor:<span th:text="${course.instructor}"></span><br/><br/>
+    Description:<span th:text="${course.description}"></span><br/><br/>
+    Credits:<span th:text="${course.credit}"></span><br/><br/>
+    </h3><br/>
+
+    <a th:href="@{/delete/{id}(id=${course.id})}"
+       class="btn btn-default btn-sm">
+        <span class="glyphicon glyphicon-trash"></span>
+        Delete
+    </a>
+
+<div th:replace="fragments :: footer"></div>
 </body>
 </html>

@@ -1,32 +1,50 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+<!--<head th:replace="~{fragments :: headlinks}">-->
+<head th:replace="fragments :: headlinks">
     <meta charset="UTF-8">
     <title>Course Form</title>
+    <!--//<div th:replace="~{fragments :: headlinks}"></div>-->
+
 </head>
 <body>
-    <h2 style="alignment: center">Course Form</h2>
+    <h2 class="pageTitle">Course Form</h2>
     <form action="#"
           th:action="@{/process}"
           th:object="${course}"
           method="post">
         <input type="hidden" th:field="*{id}" />
+        <h3 name="textInput">
         Title: <input type="text" th:field="*{title}"/>
                <span th:if="${#fields.hasErrors('title')}"
-                     th:errors="*{title}"></span><br/>
-
+                     th:errors="*{title}"></span>
+        </h3><br/>
+        <h3 name="textInput">
         Instructor:<input type="text" th:field="*{instructor}"/>
                    <span th:if="${#fields.hasErrors('instructor')}"
-                         th:errors="*{instructor}"></span><br/>
-
+                         th:errors="*{instructor}"></span>
+        </h3><br/>
+        <h3 name="textInput">
         Description:<textarea rows="3" th:field="*{description}"/>
                     <span th:if="${#fields.hasErrors('description')}"
                           th:errors="*{description}"></span> <br/>
-        Credits: <input type="text" th:field="*{credit}"/>
-                 <span th:if="${#fields.hasErrors('credit')}"
-                       th:errors="*{credit}"></span> <br/>
-
+        </h3><br/>
+        <h3 name="textInput">
+            Credits: <input type="text" th:field="*{credit}"/>
+             <span th:if="${#fields.hasErrors('credit')}"
+                   th:errors="*{credit}"></span> <br/>
+        </h3><br/>
         <input type="submit" value="Submit"/>
+        <a href="/" class="btn btn-default btn-sm">Cancel
+        </a>
+
+
     </form>
+
+
+
+
+    <div th:replace="~{fragments :: footer}"></div>
+
 </body>
 </html>
